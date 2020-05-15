@@ -4,7 +4,6 @@
  * @date 13.10.2019
  * @brief Contains definition of LinkedRealisation class methods.
  */
-
 #include "LinkedRealisation.h"
 
 template<typename T>

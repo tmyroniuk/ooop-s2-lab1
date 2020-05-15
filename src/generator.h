@@ -19,6 +19,8 @@
 template <typename T>
 class Generator
 {
+    static std::random_device rd;
+
 public:
     static T rand_val();
 

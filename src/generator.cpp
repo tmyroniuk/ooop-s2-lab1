@@ -1,8 +1,12 @@
 #include "generator.h"
+#include <QString>
+#include <QDebug>
+
+template <typename T>
+std::random_device Generator<T>::rd;
 
 template<>
 IPv4 Generator<IPv4>::rand_val() {
-    std::random_device rd;
     std::uniform_int_distribution<int> dist(0, 255);
     std::string res = std::to_string(dist(rd));
     for (int i = 0; i < 3; i++) res += '.' + std::to_string(dist(rd));
@@ -11,7 +15,6 @@ IPv4 Generator<IPv4>::rand_val() {
 
 template<>
 MAC Generator<MAC>::rand_val() {
-    std::random_device rd;
     Parser parser;
     std::uniform_int_distribution<int> dist(0, 255);
     std::string res = parser.intToHex(dist(rd));
@@ -21,7 +24,6 @@ MAC Generator<MAC>::rand_val() {
 
 template<>
 IPv6 Generator<IPv6>::rand_val() {
-    std::random_device rd;
     Parser parser;
     std::uniform_int_distribution<uint16_t> dist(0, 65535);
     std::string res = parser.intToHex(dist(rd));
@@ -31,21 +33,18 @@ IPv6 Generator<IPv6>::rand_val() {
 
 template<>
 int Generator<int>::rand_val() {
-    std::random_device rd;
     std::uniform_int_distribution<int> dist(-255, 255);
     return dist(rd);
 }
 
 template<>
 double Generator<double>::rand_val() {
-    std::random_device rd;
     std::uniform_int_distribution<int> dist(1, 255);
     return double(dist(rd))/double(dist(rd));
 }
 
 template<>
 std::string Generator<std::string>::rand_val() {
-    std::random_device rd;
     std::string res;
     std::uniform_int_distribution<int> len(1, 10);
     std::uniform_int_distribution<int> dist(int('a'), int('z'));
@@ -54,7 +53,7 @@ std::string Generator<std::string>::rand_val() {
 }
 
 template<>
-int Generator<int>::concrete_val(const std::string& str) { return std::stoi(str); }
+int Generator<int>::concrete_val(const std::string& str) {qDebug()<< QString::fromStdString(str); return std::stoi(str); }
 
 template<>
 double Generator<double>::concrete_val(const std::string& str) { return std::stod(str); }

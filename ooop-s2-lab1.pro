@@ -29,7 +29,7 @@ SOURCES += \
     src/Address/Subnet/MAC_Subnet.cpp \
     src/Address/Subnet/Subnet.cpp \
     src/generator.cpp \
-    src/listmodel.cpp \
+    src/genericlistmodel.cpp \
     src/main.cpp \
     src/mainwindow.cpp
 
@@ -72,7 +72,7 @@ HEADERS += \
     src/List/VectorList.h \
     src/List/VectorList.inl.h \
     src/generator.h \
-    src/listmodel.h \
+    src/genericlistmodel.h \
     src/mainwindow.h
 
 FORMS += \

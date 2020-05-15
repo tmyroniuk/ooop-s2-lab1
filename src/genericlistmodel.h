@@ -11,33 +11,39 @@ enum Roles {
     ListRole
 };
 
-template <typename T>
-class ListModel : public QAbstractListModel
+class GenericListModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    BaseList<T>* list;
+    template <typename T> static BaseList<T>* list;
+    static int type;
+    static int realisation;
+
+    template<typename T> void setSort(int i);
+    template<typename T> void setList(int i);
 
 public:
-    explicit ListModel(QObject *parent = nullptr);
+    explicit GenericListModel(QObject *parent = nullptr);
     
-    ~ListModel();
+    ~GenericListModel();
 
     // Basic functionality:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
 public slots:
+    void setType(int i);
+
     void clear();
     
-    void sort();
+    void execSort();
 };
 
 #endif // LISTMODEL_H
