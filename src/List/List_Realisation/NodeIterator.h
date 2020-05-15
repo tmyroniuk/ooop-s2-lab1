@@ -99,6 +99,6 @@ public:
     virtual void setNext(NodeIterator *to) = 0;
 };
 
-#include "NodeIterator.inl"
+#include "NodeIterator.inl.h"
 
 #endif //LISTS_NODEITERATOR_H

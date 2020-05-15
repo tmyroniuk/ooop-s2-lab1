@@ -214,6 +214,6 @@ protected:
     Sort<T>* sorting_algo;
 };
 
-#include "BaseList.inl"
+#include "BaseList.inl.h"
 
 #endif //LISTS_BASELIST_H

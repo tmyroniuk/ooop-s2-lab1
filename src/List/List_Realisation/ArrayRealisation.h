@@ -1,29 +1,31 @@
-//
-// Created by tmyro on 18.11.2019.
-//
+/**
+ * @file ArrayRealisation.h
+ * @author tmyroniuk
+ * @date 14.10.2019
+ * @brief Contains declaration of ArrayRealisation class.
+ */
 
-#ifndef LAB1_VECTORLIST_H
-#define LAB1_VECTORLIST_H
+#ifndef LISTS_ArrayRealisation_H
+#define LISTS_ArrayRealisation_H
 
-#include <vector>
 #include "ListRealisation.h"
 
 /**
- * Realisation of vector list.
+ * Realisation of array list.
  *
- * Realisation of list which stores nodes in the std::vector. Supports
+ * Realisation of list which stores nodes in the array. Supports
  * random access.
  *
  * @tparam T Type of elements in the list.
  */
 template<typename T>
-class VectorList : public ListRealisation<T> {
+class ArrayRealisation : public ListRealisation<T> {
 public:
     /**
-     * Implementation of node and iterator over vector list
+     * Implementation of node and iterator over array list
      *
-     * Has to be inherited from NodeIterator class so vector::Iterator cannot
-     * be used.
+     * Behaves as node and iterator in ArrayRealisation. Overrides methods
+     * of NodeIterator class to work with array list.
      */
     class Node : public NodeIterator<T> {
     public:
@@ -66,13 +68,13 @@ public:
          */
         NodeIterator<T> *forward(int count);
 
-        /**
-         * Returns node that is <count> positions before this node.
-         *
-         * @param count positions backward to move.
-         *
-         * @return Node <count> positions after this.
-         */
+       /**
+        * Returns node that is <count> positions before this node.
+        *
+        * @param count positions backward to move.
+        *
+        * @return Node <count> positions after this.
+        */
         NodeIterator<T> *backward(int count);
 
         /**
@@ -91,9 +93,9 @@ public:
     /**
      * Default constructor.
      *
-     * Creates empty vector list.
+     * Creates empty array list (with only tail element).
      */
-    VectorList();
+    ArrayRealisation();
 
     /**
      * Inserts element before <pos>.
@@ -129,17 +131,42 @@ public:
      */
     NodeIterator<T> *end();
 
-    ~VectorList();
+    /**
+     * Destructor.
+     *
+     * Deletes the array of elements.
+     * Does NOT delete raw pointers stored in list.
+     */
+    ~ArrayRealisation();
 
 private:
+
     /**
-     * std::vector which actually stores the elements
-     * in list.
+     * Times the array is increased when it overflows.
      */
-    std::vector<Node>* body;
+    const unsigned int grow_rate;
+
+    /**
+     * Pointer to the head of the list.
+     */
+    NodeIterator<T> *head;
+
+    /**
+     * Current size of the array.
+     */
+    unsigned int reserved;
+
+    /**
+     * Increases array size in <grow_rate> times.
+     */
+    void grow();
+
+    /**
+     * If list is empty releases memory.
+     */
+    void shrink();
 };
 
-#include "VectorList.inl"
+#include "ArrayRealisation.inl.h"
 
-
-#endif //LAB1_VECTORLIST_H
+#endif //LISTS_ArrayRealisation_H

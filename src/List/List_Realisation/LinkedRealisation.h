@@ -1,12 +1,12 @@
 /**
- * @file LinkedList.h
+ * @file LinkedRealisation.h
  * @author tmyroniuk
  * @date 13.10.2019
- * @brief Contains declaration of LinkedList class.
+ * @brief Contains declaration of LinkedRealisation class.
  */
 
-#ifndef LISTS_LINKEDLIST_H
-#define LISTS_LINKEDLIST_H
+#ifndef LISTS_LinkedRealisation_H
+#define LISTS_LinkedRealisation_H
 
 
 #include "ListRealisation.h"
@@ -20,12 +20,12 @@
  * @tparam T Type if the elements stored.
  */
 template<typename T>
-class LinkedList : public ListRealisation<T> {
+class LinkedRealisation : public ListRealisation<T> {
 public:
     /**
      * Implementation of node and iterator over linked list
      *
-     * Behaves as node and iterator in LinkedList. Overrides methods
+     * Behaves as node and iterator in LinkedRealisation. Overrides methods
      * of NodeIterator class to work with array list.
      */
     class Node : public NodeIterator<T> {
@@ -107,7 +107,7 @@ public:
      *
      * Creates tail node. Set the head pointer to it. Links them.
      */
-    LinkedList();
+    LinkedRealisation();
 
     /**
      * Inserts new element with given value before given position.
@@ -146,7 +146,7 @@ public:
      * Deletes each element of the list. Does NOT delete raw pointers stored
      * in the list.
      */
-    virtual ~LinkedList();
+    virtual ~LinkedRealisation();
 
 private:
 
@@ -161,6 +161,6 @@ private:
     NodeIterator<T> *tail;
 };
 
-#include "LinkedList.inl"
+#include "LinkedRealisation.inl.h"
 
-#endif //LISTS_LINKEDLIST_H
+#endif //LISTS_LinkedRealisation_H

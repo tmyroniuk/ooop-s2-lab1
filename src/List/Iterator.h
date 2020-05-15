@@ -185,6 +185,6 @@ public:
     T &operator*();
 };
 
-#include "Iterator.inl"
+#include "Iterator.inl.h"
 
 #endif //LISTS_ITERATOR_H

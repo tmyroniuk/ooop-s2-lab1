@@ -13,26 +13,26 @@
 /**
  * Implements linked list.
  *
- * BaseList with LinkedList realisation. Iterators over this are safe to use after an
+ * BaseList with LinkedRealisation realisation. Iterators over this are safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
  */
 template<typename T>
-class List : public BaseList<T> {
+class LinkedList : public BaseList<T> {
 
 public:
 
     /**
      * Default constructor.
      *
-     * Creates List from BaseList constructor and LinkedList object as a
+     * Creates List from BaseList constructor and LinkedRealisation object as a
      * parameter.
      */
-    List();
+    LinkedList();
 };
 
-#include "List.inl"
+#include "LinkedList.inl.h"
 
 
 #endif //LISTS_LIST_H

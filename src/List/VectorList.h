@@ -1,35 +1,32 @@
-/**
- * @file Vector.h
- * @author tmyroniuk
- * @date 15.10.2019
- * @brief Contains declaration of Vector class.
- */
+//
+// Created by tmyro on 18.11.2019.
+//
 
-#ifndef LISTS_VECTOR_H
-#define LISTS_VECTOR_H
+#ifndef LAB1_VectorList_H
+#define LAB1_VectorList_H
 
 #include "BaseList.h"
-
+#include "List_Realisation/VectorRealisation.h"
 /**
- * Implements array list.
+ * Implements vector list.
  *
- * BaseList with ArrayList realisation. Iterators over this list are NOT safe to use after an
+ * BaseList with VectorRealisation realisation. Iterators over this list are NOT safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
  */
 template<typename T>
-class Vector : public BaseList<T> {
+class VectorList : public BaseList<T> {
 
 public:
 
     /**
      * Default constructor.
      *
-     * Creates List from BaseList constructor and ArrayList object as a
+     * Creates list from BaseList constructor with VectorRealisation object as a
      * parameter.
      */
-    Vector();
+    VectorList();
 
     /**
      * Random access operator.
@@ -43,6 +40,6 @@ public:
     T &operator[](unsigned int _val);
 };
 
-#include "Vector.inl"
+#include "VectorList.inl.h"
 
-#endif //LISTS_VECTOR_H
+#endif //LAB1_VectorList_H

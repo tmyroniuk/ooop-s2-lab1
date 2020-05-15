@@ -71,6 +71,6 @@ public:
     virtual ~ListRealisation() = default;
 };
 
-#include "ListRealisation.inl"
+#include "ListRealisation.inl.h"
 
 #endif //LISTS_LISTREALISATION_H

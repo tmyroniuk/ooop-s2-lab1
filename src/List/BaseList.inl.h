@@ -6,8 +6,8 @@
  */
 
 #include "BaseList.h"
-#include "List_Realisation/LinkedList.h"
-#include "List_Realisation/ArrayList.h"
+#include "List_Realisation/LinkedRealisation.h"
+#include "List_Realisation/ArrayRealisation.h"
 
 
 template<typename T>
@@ -16,12 +16,12 @@ NodeIterator<T> *BaseList<T>::getNode(const Iterator<T> &_iterator) {
 }
 
 template<typename T>
-typename Iterator<T> BaseList<T>::begin() {
+Iterator<T> BaseList<T>::begin() {
     return Iterator<T>(realisation->begin());
 }
 
 template<typename T>
-typename Iterator<T> BaseList<T>::end() {
+Iterator<T> BaseList<T>::end() {
     return Iterator<T>(realisation->end());
 }
 

@@ -2,7 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++14
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -28,6 +28,8 @@ SOURCES += \
     src/Address/Subnet/IPv6_Subnet.cpp \
     src/Address/Subnet/MAC_Subnet.cpp \
     src/Address/Subnet/Subnet.cpp \
+    src/generator.cpp \
+    src/listmodel.cpp \
     src/main.cpp \
     src/mainwindow.cpp
 
@@ -45,30 +47,32 @@ HEADERS += \
     src/Address/Subnet/MAC_Subnet.h \
     src/Address/Subnet/Subnet.h \
     src/CustomSort.h \
+    src/List/ArrayList.h \
+    src/List/ArrayList.inl.h \
     src/List/BaseList.h \
-    src/List/BaseList.inl \
+    src/List/BaseList.inl.h \
     src/List/Iterator.h \
-    src/List/Iterator.inl \
-    src/List/LibVector.h \
-    src/List/LibVector.inl \
-    src/List/List.h \
-    src/List/List.inl \
-    src/List/List_Realisation/ArrayList.h \
-    src/List/List_Realisation/ArrayList.inl \
-    src/List/List_Realisation/LinkedList.h \
-    src/List/List_Realisation/LinkedList.inl \
+    src/List/Iterator.inl.h \
+    src/List/LinkedList.h \
+    src/List/LinkedList.inl.h \
+    src/List/List_Realisation/ArrayRealisation.h \
+    src/List/List_Realisation/ArrayRealisation.inl.h \
+    src/List/List_Realisation/LinkedRealisation.h \
+    src/List/List_Realisation/LinkedRealisation.inl.h \
     src/List/List_Realisation/ListRealisation.h \
-    src/List/List_Realisation/ListRealisation.inl \
+    src/List/List_Realisation/ListRealisation.inl.h \
     src/List/List_Realisation/NodeIterator.h \
-    src/List/List_Realisation/NodeIterator.inl \
-    src/List/List_Realisation/VectorList.h \
-    src/List/List_Realisation/VectorList.inl \
+    src/List/List_Realisation/NodeIterator.inl.h \
+    src/List/List_Realisation/VectorRealisation.h \
+    src/List/List_Realisation/VectorRealisation.inl.h \
     src/List/Sort/InsertionSort.h \
     src/List/Sort/MergeSort.h \
     src/List/Sort/QuickSort.h \
     src/List/Sort/Sort.h \
-    src/List/Vector.h \
-    src/List/Vector.inl \
+    src/List/VectorList.h \
+    src/List/VectorList.inl.h \
+    src/generator.h \
+    src/listmodel.h \
     src/mainwindow.h
 
 FORMS += \

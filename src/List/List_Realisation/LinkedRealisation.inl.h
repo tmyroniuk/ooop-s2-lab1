@@ -1,25 +1,25 @@
 /**
- * @file LinkedList.inl
+ * @file LinkedRealisation.inl
  * @author tmyroniuk
  * @date 13.10.2019
- * @brief Contains definition of LinkedList class methods.
+ * @brief Contains definition of LinkedRealisation class methods.
  */
 
-#include "LinkedList.h"
+#include "LinkedRealisation.h"
 
 template<typename T>
-LinkedList<T>::LinkedList() : ListRealisation(), head(new Node()), tail(head) {}
+LinkedRealisation<T>::LinkedRealisation() : ListRealisation<T>(), head(new Node()), tail(head) {}
 
 template<typename T>
-LinkedList<T>::Node::Node() : NodeIterator(), prev(nullptr), next(nullptr) {}
+LinkedRealisation<T>::Node::Node() : NodeIterator<T>(), prev(nullptr), next(nullptr) {}
 
 template<typename T>
-LinkedList<T>::Node::Node(T data, NodeIterator<T> *_prev, NodeIterator<T> *_next) : NodeIterator(data), prev(_prev),
+LinkedRealisation<T>::Node::Node(T data, NodeIterator<T> *_prev, NodeIterator<T> *_next) : NodeIterator<T>(data), prev(_prev),
                                                                                     next(_next) {}
 
 template<typename T>
-void LinkedList<T>::insert(NodeIterator<T> *pos, T data) {
-    if (len == 0) {
+void LinkedRealisation<T>::insert(NodeIterator<T> *pos, T data) {
+    if (LinkedRealisation<T>::len == 0) {
         //create head
         head = new Node(data, nullptr, tail);
         //fix tail
@@ -33,11 +33,11 @@ void LinkedList<T>::insert(NodeIterator<T> *pos, T data) {
             temp->getPrev()->setNext(temp);
         } else head = temp;
     }
-    len++;
+    LinkedRealisation<T>::len++;
 }
 
 template<typename T>
-T LinkedList<T>::extract(NodeIterator<T> *pos) {
+T LinkedRealisation<T>::extract(NodeIterator<T> *pos) {
     T temp = pos->getVal();
     //we shouldn't delete tail
     if (pos != tail) {
@@ -48,36 +48,36 @@ T LinkedList<T>::extract(NodeIterator<T> *pos) {
         //fix right
         pos->getNext()->setPrev(pos->getPrev());
         delete pos;
-        len--;
+        LinkedRealisation<T>::len--;
     }
     return temp;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedList<T>::begin() {
+NodeIterator<T> *LinkedRealisation<T>::begin() {
     return head;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedList<T>::end() {
+NodeIterator<T> *LinkedRealisation<T>::end() {
     return tail;
 }
 
 template<typename T>
-LinkedList<T>::~LinkedList() {
+LinkedRealisation<T>::~LinkedRealisation() {
     for (auto i = head->getNext(); i != nullptr; i = i->getNext()) delete i->getPrev();
     delete tail;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedList<T>::Node::getPrev() {
+NodeIterator<T> *LinkedRealisation<T>::Node::getPrev() {
     return prev;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedList<T>::Node::backward(int count) {
+NodeIterator<T> *LinkedRealisation<T>::Node::backward(int count) {
     if (count < 0) forward(-count);
-    NodeIterator *temp = this;
+    NodeIterator<T> *temp = this;
     for (int i = 0; i < count; i++) {
         temp = temp->getPrev();
     }
@@ -85,12 +85,12 @@ NodeIterator<T> *LinkedList<T>::Node::backward(int count) {
 }
 
 template<typename T>
-NodeIterator<T> *LinkedList<T>::Node::getNext() {
+NodeIterator<T> *LinkedRealisation<T>::Node::getNext() {
     return next;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedList<T>::Node::forward(int count) {
+NodeIterator<T> *LinkedRealisation<T>::Node::forward(int count) {
     if (count < 0) backward(-count);
     NodeIterator<T> *temp = this;
     for (int i = 0; i < count; i++) {
@@ -100,11 +100,11 @@ NodeIterator<T> *LinkedList<T>::Node::forward(int count) {
 }
 
 template<typename T>
-void LinkedList<T>::Node::setPrev(NodeIterator<T> *to) {
+void LinkedRealisation<T>::Node::setPrev(NodeIterator<T> *to) {
     prev = to;
 }
 
 template<typename T>
-void LinkedList<T>::Node::setNext(NodeIterator<T> *to) {
+void LinkedRealisation<T>::Node::setNext(NodeIterator<T> *to) {
     next = to;
 }

@@ -10,7 +10,7 @@
 
 #include "Sort.h"
 
-#include "../Vector.h"
+#include "../ArrayList.h"
 
 /**
  * Realises merge sort algorithm.
@@ -75,7 +75,7 @@ void
 MergeSort<T>::merge(Iterator<T> begin, Iterator<T> med, Iterator<T> end, bool (*comparator)(const T &, const T &)) {
     auto i = begin;
     auto j = med;
-    Vector<T> res;
+    ArrayList<T> res;
     for (auto k = begin; k != end; k++) {
         if (j == end || (i != med && (*comparator)(*j, *i))) {
             res.push_back(*i);
