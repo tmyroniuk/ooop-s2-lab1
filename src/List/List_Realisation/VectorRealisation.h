@@ -1,6 +1,9 @@
-//
-// Created by tmyro on 18.11.2019.
-//
+/**
+ * @file ArrayRealisation.inl.h
+ * @author tmyroniuk
+ * @date 14.10.2019
+ * @brief Contains declaration of VectorRealisation class methods.
+ */
 
 #ifndef LAB1_VectorRealisation_H
 #define LAB1_VectorRealisation_H

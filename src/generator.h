@@ -7,8 +7,9 @@
 #include <QString>
 
 #include "List/ArrayList.h"
-#include "List/LinkedList.h"
+#include "List/DoublyLinkedList.h"
 #include "List/VectorList.h"
+#include "List/LinkedList.h"
 #include "Address/IPv4.h"
 #include "Address/MAC.h"
 #include "List/Sort/MergeSort.h"

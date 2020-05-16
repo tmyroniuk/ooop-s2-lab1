@@ -1,5 +1,5 @@
 /**
- * @file Iterator.inl
+ * @file Iterator.inl.h
  * @author tmyroniuk
  * @date 15.10.2019
  * @brief Contains definition of Iterator class methods.

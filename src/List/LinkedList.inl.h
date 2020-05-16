@@ -1,11 +1,11 @@
 /**
- * @file List.inl
+ * @file LinkedList.inl.h
  * @author tmyroniuk
- * @date 15.10.2019
- * @brief Contains definition of List class methods.
+ * @date 13.05.2020
+ * @brief Contains definition of LinkedList class methods.
  */
 
 #include "LinkedList.h"
 
 template<typename T>
-LinkedList<T>::LinkedList() : BaseList<T>(new LinkedRealisation<T>()) {}
+LinkedList<T>::LinkedList() : BaseList<T>(new DoublyLinkedRealisation<T>()) {}

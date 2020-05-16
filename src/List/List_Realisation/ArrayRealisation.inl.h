@@ -1,5 +1,5 @@
 /**
- * @file ArrayRealisation.inl
+ * @file ArrayRealisation.inl.h
  * @author tmyroniuk
  * @date 14.10.2019
  * @brief Contains definition of ArrayRealisation class methods.

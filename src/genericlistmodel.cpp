@@ -3,7 +3,7 @@
 #include <QDebug>
 
 template <typename T>
-BaseList<T>* GenericListModel::list = new LinkedList<T>;
+BaseList<T>* GenericListModel::list = new DoublyLinkedList<T>;
 int GenericListModel::type = 0;
 int GenericListModel::realisation = 0;
 
@@ -206,8 +206,9 @@ void GenericListModel::setList(int i)
     realisation = i;
     if(list<T>) delete list<T>;
     switch (realisation) {
-        case 0: list<T> = new LinkedList<T>; break;
-        case 1: list<T> = new ArrayList<T>; break;
-        case 2: list<T> = new VectorList<T>; break;
+        case 0: list<T> = new DoublyLinkedList<T>; break;
+        case 1: list<T> = new LinkedList<T>; break;
+        case 2: list<T> = new ArrayList<T>; break;
+        case 3: list<T> = new VectorList<T>; break;
     }
 }

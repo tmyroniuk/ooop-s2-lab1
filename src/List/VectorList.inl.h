@@ -1,6 +1,9 @@
-//
-// Created by tmyro on 18.11.2019.
-//
+/**
+ * @file VectorList.inl.h
+ * @author tmyroniuk
+ * @date 18.11.2019
+ * @brief Contains definition of VectorList class methods.
+ */
 
 #include "VectorList.h"
 

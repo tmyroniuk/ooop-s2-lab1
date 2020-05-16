@@ -1,7 +1,7 @@
 /**
- * @file LinkedRealisation.inl
+ * @file LinkedRealisation.inl.h
  * @author tmyroniuk
- * @date 13.10.2019
+ * @date 13.05.2020
  * @brief Contains definition of LinkedRealisation class methods.
  */
 #include "LinkedRealisation.h"
@@ -10,27 +10,26 @@ template<typename T>
 LinkedRealisation<T>::LinkedRealisation() : ListRealisation<T>(), head(new Node()), tail(head) {}
 
 template<typename T>
-LinkedRealisation<T>::Node::Node() : NodeIterator<T>(), prev(nullptr), next(nullptr) {}
+LinkedRealisation<T>::Node::Node(ListRealisation<T>* _list) : NodeIterator<T>(), next(nullptr), list(_list) {}
 
 template<typename T>
-LinkedRealisation<T>::Node::Node(T data, NodeIterator<T> *_prev, NodeIterator<T> *_next) : NodeIterator<T>(data), prev(_prev),
-                                                                                    next(_next) {}
+LinkedRealisation<T>::Node::Node(T data, NodeIterator<T> *_next, ListRealisation<T>* _list) : NodeIterator<T>(data),
+                                                                                    next(_next), list(_list) {}
 
 template<typename T>
 void LinkedRealisation<T>::insert(NodeIterator<T> *pos, T data) {
     if (LinkedRealisation<T>::len == 0) {
         //create head
-        head = new Node(data, nullptr, tail);
-        //fix tail
-        tail->setPrev(head);
+        head = new Node(data, tail, this);
     } else {
-        Node *temp = new Node(data, pos->getPrev(), pos);
-        //fix right
-        pos->setPrev(temp);
+        Node *temp = new Node(data, nullptr, this);
         //in case it is not head fix left
         if (pos != head) {
-            temp->getPrev()->setNext(temp);
+            pos->getPrev()->setNext(temp);
         } else head = temp;
+        //fix right
+        temp->setNext(pos);
+
     }
     LinkedRealisation<T>::len++;
 }
@@ -44,8 +43,6 @@ T LinkedRealisation<T>::extract(NodeIterator<T> *pos) {
         if (pos != head)
             pos->getPrev()->setNext(pos->getNext());
         else head = pos->getNext();
-        //fix right
-        pos->getNext()->setPrev(pos->getPrev());
         delete pos;
         LinkedRealisation<T>::len--;
     }
@@ -70,7 +67,11 @@ LinkedRealisation<T>::~LinkedRealisation() {
 
 template<typename T>
 NodeIterator<T> *LinkedRealisation<T>::Node::getPrev() {
-    return prev;
+    if(this == list->begin()) return nullptr;
+    //Search for node for which this node is next
+    for(auto i = list->begin(); i->getNext() != nullptr; i = i->getNext());
+        if(i->getNext() == this) return i;
+    return nullptr;
 }
 
 template<typename T>
@@ -96,11 +97,6 @@ NodeIterator<T> *LinkedRealisation<T>::Node::forward(int count) {
         temp = temp->getNext();
     }
     return temp;
-}
-
-template<typename T>
-void LinkedRealisation<T>::Node::setPrev(NodeIterator<T> *to) {
-    prev = to;
 }
 
 template<typename T>

@@ -81,6 +81,11 @@
     </property>
     <item>
      <property name="text">
+      <string>Doubly linked list</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Linked list</string>
      </property>
     </item>

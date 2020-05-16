@@ -1,6 +1,9 @@
-//
-// Created by tmyro on 18.11.2019.
-//
+/**
+ * @file VectorList.h
+ * @author tmyroniuk
+ * @date 18.11.2019
+ * @brief Contains declaration of VectorList class methods.
+ */
 
 #ifndef LAB1_VectorList_H
 #define LAB1_VectorList_H

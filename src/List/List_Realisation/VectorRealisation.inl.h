@@ -1,6 +1,9 @@
-//
-// Created by tmyro on 18.11.2019.
-//
+/**
+ * @file VectorRealisation.inl.h
+ * @author tmyroniuk
+ * @date 14.10.2019
+ * @brief Contains definition of VectorRealisation class methods.
+ */
 
 #include "VectorRealisation.h"
 

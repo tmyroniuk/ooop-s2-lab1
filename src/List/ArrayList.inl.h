@@ -1,8 +1,8 @@
 /**
- * @file Vector.inl
+ * @file ArrayList.inl.h
  * @author tmyroniuk
  * @date 15.10.2019
- * @brief Contains definition of Vector class methods.
+ * @brief Contains definition of ArrayList class methods.
  */
 
 #include "ArrayList.h"

@@ -1,5 +1,5 @@
 /**
- * @file Vector.h
+ * @file ArrayList.h
  * @author tmyroniuk
  * @date 15.10.2019
  * @brief Contains declaration of Vector class.

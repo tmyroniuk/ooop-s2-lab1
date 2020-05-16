@@ -1,12 +1,12 @@
 /**
- * @file BaseList.inl
+ * @file BaseList.inl.h
  * @author tmyroniuk
  * @date 13.10.2019
  * @brief Contains definition of BaseList class methods.
  */
 
 #include "BaseList.h"
-#include "List_Realisation/LinkedRealisation.h"
+#include "List_Realisation/DoublyLinkedRealisation.h"
 #include "List_Realisation/ArrayRealisation.h"
 
 

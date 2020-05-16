@@ -51,12 +51,16 @@ HEADERS += \
     src/List/ArrayList.inl.h \
     src/List/BaseList.h \
     src/List/BaseList.inl.h \
+    src/List/DoublyLinkedList.h \
+    src/List/DoublyLinkedList.inl.h \
     src/List/Iterator.h \
     src/List/Iterator.inl.h \
     src/List/LinkedList.h \
     src/List/LinkedList.inl.h \
     src/List/List_Realisation/ArrayRealisation.h \
     src/List/List_Realisation/ArrayRealisation.inl.h \
+    src/List/List_Realisation/DoublyLinkedRealisation.h \
+    src/List/List_Realisation/DoublyLinkedRealisation.inl.h \
     src/List/List_Realisation/LinkedRealisation.h \
     src/List/List_Realisation/LinkedRealisation.inl.h \
     src/List/List_Realisation/ListRealisation.h \
@@ -65,6 +69,7 @@ HEADERS += \
     src/List/List_Realisation/NodeIterator.inl.h \
     src/List/List_Realisation/VectorRealisation.h \
     src/List/List_Realisation/VectorRealisation.inl.h \
+    src/List/Sort/HeapSort.h \
     src/List/Sort/InsertionSort.h \
     src/List/Sort/MergeSort.h \
     src/List/Sort/QuickSort.h \

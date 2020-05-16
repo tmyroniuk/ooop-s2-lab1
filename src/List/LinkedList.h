@@ -1,19 +1,20 @@
 /**
- * @file List.h
+ * @file LinkedList.h
  * @author tmyroniuk
- * @date 15.10.2019
- * @brief Contains declaration of List class.
+ * @date 13.05.2020
+ * @brief Contains declaration of LinkedList class methods.
  */
 
-#ifndef LISTS_LIST_H
-#define LISTS_LIST_H
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
 
 #include "BaseList.h"
 
 /**
  * Implements linked list.
  *
- * BaseList with LinkedRealisation realisation. Iterators over this are safe to use after an
+ * BaseList with LinkedRealisation realisation. Iterators over it are safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
@@ -34,5 +35,4 @@ public:
 
 #include "LinkedList.inl.h"
 
-
-#endif //LISTS_LIST_H
+#endif // LINKEDLIST_H
