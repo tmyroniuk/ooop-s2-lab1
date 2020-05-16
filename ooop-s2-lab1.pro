@@ -73,6 +73,8 @@ HEADERS += \
     src/List/Sort/InsertionSort.h \
     src/List/Sort/MergeSort.h \
     src/List/Sort/QuickSort.h \
+    src/List/Sort/SelectionSort.h \
+    src/List/Sort/ShellSort.h \
     src/List/Sort/Sort.h \
     src/List/VectorList.h \
     src/List/VectorList.inl.h \

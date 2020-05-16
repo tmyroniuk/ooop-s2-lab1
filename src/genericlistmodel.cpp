@@ -1,7 +1,5 @@
 #include "genericlistmodel.h"
 
-#include <QDebug>
-
 template <typename T>
 BaseList<T>* GenericListModel::list = new DoublyLinkedList<T>;
 int GenericListModel::type = 0;
@@ -67,7 +65,6 @@ QVariant GenericListModel::data(const QModelIndex &index, int role) const
 
 bool GenericListModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    qDebug() << index.row();
     if(role == Qt::DisplayRole) {
         if(!index.isValid())
             return false;
@@ -197,6 +194,9 @@ void GenericListModel::setSort(int i)
         case 0: list<T>->setSortAlgo(new QuickSort<T>); break;
         case 1: list<T>->setSortAlgo(new InsertionSort<T>); break;
         case 2: list<T>->setSortAlgo(new MergeSort<T>); break;
+        case 3: list<T>->setSortAlgo(new HeapSort<T>); break;
+        case 4: list<T>->setSortAlgo(new SelectionSort<T>); break;
+        case 5: list<T>->setSortAlgo(new ShellSort<T>); break;
     }
 }
 

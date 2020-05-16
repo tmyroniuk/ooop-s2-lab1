@@ -1,6 +1,5 @@
 #include "generator.h"
 #include <QString>
-#include <QDebug>
 
 template <typename T>
 std::random_device Generator<T>::rd;
@@ -53,7 +52,7 @@ std::string Generator<std::string>::rand_val() {
 }
 
 template<>
-int Generator<int>::concrete_val(const std::string& str) {qDebug()<< QString::fromStdString(str); return std::stoi(str); }
+int Generator<int>::concrete_val(const std::string& str) { return std::stoi(str); }
 
 template<>
 double Generator<double>::concrete_val(const std::string& str) { return std::stod(str); }

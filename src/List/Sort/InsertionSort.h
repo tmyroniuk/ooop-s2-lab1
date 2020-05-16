@@ -8,6 +8,8 @@
 #ifndef LAB1_INSERTIONSORT_H
 #define LAB1_INSERTIONSORT_H
 
+#include <utility>
+
 #include "Sort.h"
 
 /**
@@ -18,13 +20,13 @@
  * @tparam T Type of elements sorted.
  */
 template <typename T>
-class InsertionSort : public Sort<T> {
+class SelectionSort : public Sort<T> {
 public:
     /**
      * Sorts elements in range [begin, end) using custom comparator.
      *
-     * Sorts elements in range [begin, end) via insertion sort. Custom
-     * comparator is a bool function equal to (first >= second).
+     * Sorts elements in range [begin, end) via insertion sort with min element base.
+     * Custom comparator is a bool function equal to (first >= second).
      *
      * @param begin Iterator to the begin of the range.
      * @param end Iterator to the tail of the range.
@@ -33,20 +35,22 @@ public:
     void sort(Iterator<T> begin, Iterator<T> end, bool(*comparator)(const T &, const T &));
 };
 
-/*
- * Basic insertion sort algorithm, which sorts array
- * in range [begin, end) using comparator as >= function.
- */
+
 template<typename T>
-void InsertionSort<T>::sort(Iterator <T> begin, Iterator <T> end, bool (*comparator)(const T &, const T &)) {
-    for(auto i=begin; i!=end; i++){
-        auto j = i;
-        T temp = *i;
-        while(j != begin && (*comparator)(*(j-1), temp)){
-            *j = *(j-1);
-            j--;
-        }
-        *j = temp;
+void SelectionSort<T>::sort(Iterator <T> begin, Iterator <T> end, bool (*comparator)(const T &, const T &)) {
+    //check if empty
+    if(begin == end) return;
+    Iterator<T> i, j, min_idx;
+
+    // One by one move boundary of unsorted subarray
+    for (i = begin; i != end - 1; i++) {
+        // Find the minimum element in unsorted array
+        min_idx = i;
+        for (j = i+1; j != end; j++)
+            if (!(*comparator)(*j, *min_idx))  min_idx = j;
+
+        // Swap the found minimum element with the first element
+        std::swap(*min_idx, *i);
     }
 }
 
