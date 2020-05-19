@@ -13,13 +13,13 @@
 /**
  * Implements array list.
  *
- * BaseList with ArrayList realisation. Iterators over this list are NOT safe to use after an
+ * BaseList with ArrayList realization. Iterators over this list are NOT safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
  */
 template<typename T>
-class Vector : public BaseList<T> {
+class ArrayList : public BaseList<T> {
 
 public:
 
@@ -29,7 +29,7 @@ public:
      * Creates List from BaseList constructor and ArrayList object as a
      * parameter.
      */
-    Vector();
+    ArrayList();
 
     /**
      * Random access operator.
@@ -43,6 +43,6 @@ public:
     T &operator[](unsigned int _val);
 };
 
-#include "Vector.inl"
+#include "ArrayList.inl.h"
 
 #endif //LISTS_VECTOR_H

@@ -8,9 +8,9 @@
 #include <string>
 #include <random>
 
-#include "List/Vector.h"
-#include "List/List.h"
-#include "List/LibVector.h"
+#include "List/ArrayList.h"
+#include "List/LinkedList.h"
+#include "List/VectorList.h"
 #include "Address/IPv4.h"
 #include "Address/MAC.h"
 #include "List/Sort/MergeSort.h"
@@ -46,26 +46,6 @@ private:
     std::string extractWord(std::string& str);
 
     /**
-     * Generate a random T value.
-     *
-     * The template is specialised for int, double, string, IPv4, IPv6, MAC.
-     *
-     * @return Random value of T type.
-     */
-    T rand_val();
-
-    /**
-     * Parses T value from string.
-     *
-     * The template is specialised for int, double, string, IPv4, IPv6, MAC.
-     *
-     * @param str Input string.
-     *
-     * @return T value from the string given.
-     */
-    T concrete_val(const std::string& str);
-
-    /**
      * Prints given T type value.
      *
      * The template is specialised for int, double, string, IPv4, IPv6, MAC.
@@ -94,6 +74,26 @@ public:
      * Creates console interface without a list..
      */
     ConsoleInterface() = default;
+
+    /**
+     * Generate a random T value.
+     *
+     * The template is specialised for int, double, string, IPv4, IPv6, MAC.
+     *
+     * @return Random value of T type.
+     */
+    static T rand_val();
+
+    /**
+     * Parses T value from string.
+     *
+     * The template is specialised for int, double, string, IPv4, IPv6, MAC.
+     *
+     * @param str Input string.
+     *
+     * @return T value from the string given.
+     */
+    static T concrete_val(const std::string& str);
 
     /**
      * Executes command from string.
@@ -148,25 +148,25 @@ void ConsoleInterface<T>::parse(std::string str) {
     int index;
     if (!list) {
         switch (hash(extractWord(str).c_str())) {
-            //Creates Vector list.
-            case hash("ArrayList"):
-                list = new Vector<T>;
+            //Creates ArrayList list.
+            case hash("ArrayRealization"):
+                list = new ArrayList<T>;
                 temp_str = extractWord(str);
                 index = (temp_str.empty()) ? 0 : std::stoi(temp_str);
                 for (int i = 0; i < index; i++)
                     list->push_back(rand_val());
                 break;
             //Creates linked list.
-            case hash("LinkedList"):
-                list = new List<T>;
+            case hash("LinkedRealization"):
+                list = new LinkedList<T>;
                 temp_str = extractWord(str);
                 index = (temp_str.empty()) ? 0 : std::stoi(temp_str);
                 for (int i = 0; i < index; i++)
                     list->push_back(rand_val());
                 break;
-            //Creates LibVector list.
-            case hash("VectorList"):
-                list = new LibVector<T>;
+            //Creates VectorList list.
+            case hash("VectorRealization"):
+                list = new VectorList<T>;
                 temp_str = extractWord(str);
                 index = (temp_str.empty()) ? 0 : std::stoi(temp_str);
                 for (int i = 0; i < index; i++)
@@ -183,27 +183,27 @@ void ConsoleInterface<T>::parse(std::string str) {
     else{
         switch (hash(extractWord(str).c_str())) {
             //Replaces list with vector.
-            case hash("ArrayList"):
+            case hash("ArrayRealization"):
                 delete list;
-                list = new Vector<T>;
+                list = new ArrayList<T>;
                 temp_str = extractWord(str);
                 index = (temp_str.empty()) ? 0 : std::stoi(temp_str);
                 for (int i = 0; i < index; i++)
                     list->push_back(rand_val());
                 break;
-            //Replaces list with List.
-            case hash("LinkedList"):
+            //Replaces list with LinkedList.
+            case hash("LinkedRealization"):
                 delete list;
-                list = new List<T>;
+                list = new LinkedList<T>;
                 temp_str = extractWord(str);
                 index = (temp_str.empty()) ? 0 : std::stoi(temp_str);
                 for (int i = 0; i < index; i++)
                     list->push_back(rand_val());
                 break;
-            //Replaces list with LibVector.
-            case hash("VectorList"):
+            //Replaces list with VectorList.
+            case hash("VectorRealization"):
                 delete list;
-                list = new LibVector<T>;
+                list = new VectorList<T>;
                 temp_str = extractWord(str);
                 index = (temp_str.empty()) ? 0 : std::stoi(temp_str);
                 for (int i = 0; i < index; i++)
@@ -304,11 +304,11 @@ void ConsoleInterface<T>::parse(std::string str) {
 template <typename T>
 void ConsoleInterface<T>::help() {
     std::cout<<"\n\n"<<
-             "ArrayList [n]\n\tChange current list to Array List filled with n random values.\n\t"<<
+             "ArrayRealization [n]\n\tChange current list to Array LinkedList filled with n random values.\n\t"<<
              "n Can be ignored. In this case empty list is created."<<"\n\n\n"<<
-             "LinkedList [n]\n\tChange current list to Linked List filled with n random values.\n\t"<<
+             "LinkedRealization [n]\n\tChange current list to Linked LinkedList filled with n random values.\n\t"<<
              "n Can be ignored. In this case empty list is created."<<"\n\n\n"<<
-             "VectorList [n]\n\tChange current list to Vector List filled with n random values.\n\t"<<
+             "VectorRealization [n]\n\tChange current list to ArrayList LinkedList filled with n random values.\n\t"<<
              "n Can be ignored. In this case empty list is created."<<"\n\n\n"<<
              "push_back [<val>]\n\tAdds new element in the end of the list. If <val> is given\n\t"<<
              "takes it as new value, otherwise adds a random value."<<"\n\n\n"<<

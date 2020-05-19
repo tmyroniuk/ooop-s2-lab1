@@ -5,7 +5,7 @@
  * @brief Contains definition of ArrayList class methods.
  */
 
-#include "ArrayList.h"
+#include "ArrayRealization.h"
 
 
 template<typename T>
@@ -35,7 +35,7 @@ template<typename T>
 void ArrayList<T>::grow() {
     reserved*=grow_rate;
     auto temp = new Node[reserved];
-    for (unsigned int i = 0; i < ListRealisation<T>::len; i++) {
+    for (unsigned int i = 0; i < ListRealization<T>::len; i++) {
         temp[i].setVal(head[i].getVal());
     }
     head = temp;
@@ -43,14 +43,14 @@ void ArrayList<T>::grow() {
 
 template<typename T>
 void ArrayList<T>::shrink() {
-    if (ListRealisation<T>::len != 0) return;
+    if (ListRealization<T>::len != 0) return;
     auto temp = new Node;
     temp->setVal(head->getVal());
     head = temp;
 }
 
 template<typename T>
-ArrayList<T>::ArrayList() : ListRealisation<T>(), grow_rate(2), reserved(2), head(new Node()) {}
+ArrayList<T>::ArrayList() : ListRealization<T>(), grow_rate(2), reserved(2), head(new Node()) {}
 
 template<typename T>
 void ArrayList<T>::insert(NodeIterator<T> *pos, T data) {
@@ -60,16 +60,16 @@ void ArrayList<T>::insert(NodeIterator<T> *pos, T data) {
         i--;
     }
     i->setVal(data);
-    ListRealisation<T>::len++;
-    if (ListRealisation<T>::len + 1 >= reserved) grow();
+    ListRealization<T>::len++;
+    if (ListRealization<T>::len + 1 >= reserved) grow();
 }
 
 template<typename T>
 T ArrayList<T>::extract(NodeIterator<T> *pos) {
     T temp = pos->getVal();
     if (pos != end()) {
-        ListRealisation<T>::len--;
-        if (ListRealisation<T>::len == 0)
+        ListRealization<T>::len--;
+        if (ListRealization<T>::len == 0)
             shrink();
         else
             for (auto i = pos; i != end(); i++) *i = *(i->getNext());
@@ -88,7 +88,7 @@ NodeIterator<T> *ArrayList<T>::begin() {
 
 template<typename T>
 NodeIterator<T> *ArrayList<T>::end() {
-    return head + ListRealisation<T>::len;
+    return head + ListRealization<T>::len;
 }
 
 template<typename T>

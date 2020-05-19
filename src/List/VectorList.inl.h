@@ -5,9 +5,9 @@
 #include "VectorList.h"
 
 template<typename T>
-LibVector<T>::LibVector() : BaseList<T>(new VectorList<T>()) {}
+VectorList<T>::VectorList() : BaseList<T>(new VectorRealization<T>()) {}
 
 template<typename T>
-T &LibVector<T>::operator[](unsigned int _val) {
+T &VectorList<T>::operator[](unsigned int _val) {
     return BaseList<T>::realization->begin()->forward(_val)->getVal();
 }

@@ -5,7 +5,7 @@
  * @brief Contains definition of List class methods.
  */
 
-#include "List.h"
+#include "LinkedList.h"
 
 template<typename T>
-List<T>::List() : BaseList(new LinkedList<T>()) {}
+LinkedList<T>::LinkedList() : BaseList<T>(new LinkedRealization<T>()) {}

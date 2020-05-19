@@ -10,7 +10,7 @@
 
 #include "Sort.h"
 
-#include "../Vector.h"
+#include "../ArrayList.h"
 
 /**
  * Realises merge sort algorithm.
@@ -68,14 +68,14 @@ void MergeSort<T>::sort(Iterator<T> begin, Iterator<T> end, bool (*comparator)(c
 
 /*
  * Merges sorted ranges [begin, med) and [med, end) into sorted range
- * [begin, end) using Vector as additional memory.
+ * [begin, end) using ArrayList as additional memory.
  */
 template<typename T>
 void
 MergeSort<T>::merge(Iterator<T> begin, Iterator<T> med, Iterator<T> end, bool (*comparator)(const T &, const T &)) {
     auto i = begin;
     auto j = med;
-    Vector<T> res;
+    ArrayList<T> res;
     for (auto k = begin; k != end; k++) {
         if (j == end || (i != med && (*comparator)(*j, *i))) {
             res.push_back(*i);

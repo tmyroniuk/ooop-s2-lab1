@@ -9,18 +9,18 @@
 #define LISTS_LINKEDLIST_H
 
 
-#include "ListRealisation.h"
+#include "ListRealization.h"
 
 /**
- * Realisation of the doubly linked list.
+ * Realization of the doubly linked list.
  *
- * Realisation of the list which stores Nodes pointing to next and the previous.
+ * Realization of the list which stores Nodes pointing to next and the previous.
  * List ends with tail node, first Node in the list is head.
  *
  * @tparam T Type if the elements stored.
  */
 template<typename T>
-class LinkedList : public ListRealisation<T> {
+class LinkedRealization : public ListRealization<T> {
 public:
     /**
      * Implementation of node and iterator over linked list
@@ -107,7 +107,7 @@ public:
      *
      * Creates tail node. Set the head pointer to it. Links them.
      */
-    LinkedList();
+    LinkedRealization();
 
     /**
      * Inserts new element with given value before given position.
@@ -146,7 +146,7 @@ public:
      * Deletes each element of the list. Does NOT delete raw pointers stored
      * in the list.
      */
-    virtual ~LinkedList();
+    virtual ~LinkedRealization();
 
 private:
 
@@ -161,6 +161,6 @@ private:
     NodeIterator<T> *tail;
 };
 
-#include "LinkedList.inl"
+#include "LinkedRealization.inl.h"
 
 #endif //LISTS_LINKEDLIST_H

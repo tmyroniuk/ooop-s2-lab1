@@ -2,21 +2,21 @@
 // Created by tmyro on 18.11.2019.
 //
 
-#ifndef LAB1_LIBVECTOR_H
-#define LAB1_LIBVECTOR_H
+#ifndef LAB1_VECTORLIST_H
+#define LAB1_VECTORLIST_H
 
 #include "BaseList.h"
-#include "List_Realisation/VectorList.h"
+#include "List_Realization/VectorRealization.h"
 /**
  * Implements vector list.
  *
- * BaseList with VectorList realisation. Iterators over this list are NOT safe to use after an
+ * BaseList with VectorList realization. Iterators over this list are NOT safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
  */
 template<typename T>
-class LibVector : public BaseList<T> {
+class VectorList : public BaseList<T> {
 
 public:
 
@@ -26,7 +26,7 @@ public:
      * Creates list from BaseList constructor with VectorList object as a
      * parameter.
      */
-    LibVector();
+    VectorList();
 
     /**
      * Random access operator.
@@ -40,6 +40,6 @@ public:
     T &operator[](unsigned int _val);
 };
 
-#include "LibVector.inl"
+#include "VectorList.inl.h"
 
-#endif //LAB1_LIBVECTOR_H
+#endif //LAB1_VECTORLIST_H
