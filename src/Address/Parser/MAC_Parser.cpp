@@ -16,7 +16,7 @@
  * and adds to the result. Removes leading ':' and returns result.
  */
 uint16_t MAC_Parser::blockFromString(std::string &string) {
-    uint16_t res;
+    uint16_t res = 0;
     std::string temp;
     while (!string.empty() && string[0] != ':') {
         temp += string[0];

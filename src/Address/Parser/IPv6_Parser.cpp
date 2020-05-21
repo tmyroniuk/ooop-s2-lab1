@@ -18,7 +18,7 @@
 uint32_t IPv6_Parser::blockFromString(std::string &string) {
     uint32_t res = 0;
     std::string temp;
-    while (string[0] != ':') {
+    while (!string.empty() && string[0] != ':') {
         temp += string[0];
         string.erase(0, 1);
     }

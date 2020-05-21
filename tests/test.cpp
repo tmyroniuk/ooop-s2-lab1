@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-#include "../ConsoleInterface.h"
+#include "../src/ConsoleInterface.h"
 
 TEST_CASE("LinkedList tests") {
     LinkedList<int> list;
@@ -149,8 +149,8 @@ TEST_CASE("Addresses") {
         REQUIRE(b.asString() == "ffff:0:0:0:0:0:0:0");
     }
     SECTION("MAC") {
-        IPv4 a("ff:a0:c9:14:c8:29");
-        IPv4 b("00:a0:c9:14:c8:29");
+        MAC a("ff:a0:c9:14:c8:29");
+        MAC b("00:a0:c9:14:c8:29");
         REQUIRE(a >= b);
         std::swap(a, b);
         REQUIRE(b >= a);
