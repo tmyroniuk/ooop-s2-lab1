@@ -18,7 +18,6 @@
 #include "List/Sort/MergeSort.h"
 #include "List/Sort/QuickSort.h"
 #include "List/Sort/InsertionSort.h"
-#include "CustomSort.h"
 
 template <typename T>
 class Generator

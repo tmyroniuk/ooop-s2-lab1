@@ -48,10 +48,14 @@ template<typename T>
 void ShellSort<T>::sort(Iterator <T> begin, Iterator <T> end, bool (*comparator)(const T &, const T &)) {
     int size = range(begin, end);
     //Choosing step
-    for (int step = size/2; step >= 1; step /= 2)
-        for (auto i = begin + step; i != end; ++i)
-            for (auto j = i - step; range(begin, j) >= step && (*comparator)(*(j - step), *j); j -= step)
-                std::swap(*j, *(j - step));
+    for (int step = size/2; step > 0; step /= 2)
+        for (auto i = begin + step; i != end; i++) {
+            auto temp = *i;
+            auto j = i;
+            for (; range(begin, j) >= step && (*comparator)(*(j - step), temp); j -= step)
+                *j = *(j - step);
+            *j = temp;
+        }
 }
 
 #endif // SHELLSORT_H

@@ -1,8 +1,6 @@
-QT += core gui widgets
+QT += core
 
-CONFIG += c++14
 
-DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/Address/Address.cpp \
@@ -18,9 +16,8 @@ SOURCES += \
     src/Address/Subnet/MAC_Subnet.cpp \
     src/Address/Subnet/Subnet.cpp \
     src/generator.cpp \
-    src/genericlistmodel.cpp \
-    src/main.cpp \
-    src/mainwindow.cpp
+    tests/main.cpp \
+    tests/tests.cpp
 
 HEADERS += \
     src/Address/Address.h \
@@ -68,8 +65,4 @@ HEADERS += \
     src/List/VectorList.h \
     src/List/VectorList.inl.h \
     src/generator.h \
-    src/genericlistmodel.h \
-    src/mainwindow.h
-
-FORMS += \
-    src/mainwindow.ui
+    tests/catch.hpp
