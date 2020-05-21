@@ -9,11 +9,11 @@
 #define LAB1_VectorList_H
 
 #include "BaseList.h"
-#include "List_Realisation/VectorRealisation.h"
+#include "List_Realization/VectorRealization.h"
 /**
  * Implements vector list.
  *
- * BaseList with VectorRealisation realisation. Iterators over this list are NOT safe to use after an
+ * BaseList with VectorRealization realization. Iterators over this list are NOT safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
@@ -26,7 +26,7 @@ public:
     /**
      * Default constructor.
      *
-     * Creates list from BaseList constructor with VectorRealisation object as a
+     * Creates list from BaseList constructor with VectorRealization object as a
      * parameter.
      */
     VectorList();

@@ -8,16 +8,16 @@
 #ifndef LISTS_BASELIST_H
 #define LISTS_BASELIST_H
 
-#include "List_Realisation/ListRealisation.h"
+#include "List_Realization/ListRealization.h"
 #include "Iterator.h"
 #include "Sort/QuickSort.h"
 
 
 /**
- * Implements client interface of the list with given realisation.
+ * Implements client interface of the list with given realization.
  *
- * Base class which implements list of objects with specified realisation. Objects
- * type is given as template parameter. Classes with concrete list realisation
+ * Base class which implements list of objects with specified realization. Objects
+ * type is given as template parameter. Classes with concrete list realization
  * should be inherited from this class.
  *
  * @tparam T Type of objects stored.
@@ -27,28 +27,28 @@ template<typename T>
 class BaseList {
 public:
     /**
-     * A constructor. Takes list realisation object ptr as a parameter.
+     * A constructor. Takes list realization object ptr as a parameter.
      *
-     * Creates BaseList with specified realisation. Uses exactly given pointer,
+     * Creates BaseList with specified realization. Uses exactly given pointer,
      * so should be used with new operator:
-     * BaseList list(new ListRealisation<T>());
+     * BaseList list(new ListRealization<T>());
      *
-     * @param type Pointer to a realisation object.
+     * @param type Pointer to a realization object.
      */
-    explicit BaseList(ListRealisation<T> *type);
+    explicit BaseList(ListRealization<T> *type);
 
     /**
      * A destructor.
      *
-     * Deletes list realisation stored.
+     * Deletes list realization stored.
      */
     virtual ~BaseList();
 
     /**
      * Returns an Iterator<T> to the list head.
      *
-     * Creates an iterator to node returned be realisation method begin()
-     * as default. Can be overloaded for specific realisation.
+     * Creates an iterator to node returned be realization method begin()
+     * as default. Can be overloaded for specific realization.
      *
      * @return Iterator<T> to the head of the list.
      */
@@ -57,7 +57,7 @@ public:
     /**
      * Returns an Iterator<T> to the list tail.
      *
-     * Creates an iterator to node returned be realisation method end()
+     * Creates an iterator to node returned be realization method end()
      * as default. Note that the tail of the list is a node after the last
      * list element.
      *
@@ -68,7 +68,7 @@ public:
     /**
      * Insert new node with given data before the element which iterator is given.
      *
-     * Calls realisation method insert() with given data and the node iterator points to
+     * Calls realization method insert() with given data and the node iterator points to
      * as parameters. Old iterator are not safe to use after insertion.
      * Example:
      * list.insert(list.begin(), data);
@@ -82,7 +82,7 @@ public:
     /**
      * Removes element from the list and returns its value.
      *
-     * Calls realisation method remove() with the node iterator points to
+     * Calls realization method remove() with the node iterator points to
      * as parameter. Old iterators are not safe to use after element removed.
      * If a pointer was stored it should be captured and deleted by client.
      *
@@ -195,7 +195,7 @@ protected:
     /**
      * Returns NodeIterator pointer stored in the iterator given.
      *
-     * Extracts node from the iterator to use it in list realisation.
+     * Extracts node from the iterator to use it in list realization.
      *
      * @param _iterator Iterator with NodeIterator being extracted.
      *
@@ -204,9 +204,9 @@ protected:
     NodeIterator<T> *getNode(const Iterator<T> &_iterator);
 
     /**
-     * Pointer to the list realisation used.
+     * Pointer to the list realization used.
      */
-    ListRealisation<T> *realisation;
+    ListRealization<T> *realization;
 
     /**
      * Pointer to the Sort<T> object which sorting algorithm is used.

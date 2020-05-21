@@ -176,7 +176,10 @@ TEST_CASE("Sorting tests") {
         for(int i = 0; i < size; i++) {
             DYNAMIC_SECTION(i) {
                 REQUIRE(list[i] == list2[i]);
-
+                REQUIRE(list2[i] == list3[i]);
+                REQUIRE(list3[i] == list4[i]);
+                REQUIRE(list4[i] == list5[i]);
+                REQUIRE(list5[i] == list6[i]);
             }
         }
     }
@@ -204,12 +207,12 @@ TEST_CASE("Addresses") {
     }
     SECTION("MAC") {
         REQUIRE(MAC() == MAC(""));
-        IPv4 a("ff:a0:c9:14:c8:29");
-        IPv4 b("00:a0:c9:14:c8:29");
+        MAC a("ff:a0:c9:14:c8:29");
+        MAC b("00:a0:c9:14:c8:29");
         REQUIRE(a >= b);
         std::swap(a, b);
         REQUIRE(b >= a);
-        REQUIRE(a.asString() == "00:a0:c9:14:c8:29");
+        REQUIRE(a.asString() == "0:a0:c9:14:c8:29");
         REQUIRE(b.asString() == "ff:a0:c9:14:c8:29");
     }
 }

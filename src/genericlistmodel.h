@@ -17,7 +17,7 @@ class GenericListModel : public QAbstractListModel
 
     template <typename T> static BaseList<T>* list;
     static int type;
-    static int realisation;
+    static int realization;
 
     template<typename T> void setSort(int i);
     template<typename T> void setList(int i);

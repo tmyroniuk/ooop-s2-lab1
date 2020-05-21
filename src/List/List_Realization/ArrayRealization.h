@@ -1,30 +1,30 @@
 /**
- * @file ArrayRealisation.h
+ * @file ArrayRealization.h
  * @author tmyroniuk
  * @date 14.10.2019
- * @brief Contains declaration of ArrayRealisation class.
+ * @brief Contains declaration of ArrayRealization class.
  */
 
-#ifndef LISTS_ArrayRealisation_H
-#define LISTS_ArrayRealisation_H
+#ifndef LISTS_ArrayRealization_H
+#define LISTS_ArrayRealization_H
 
-#include "ListRealisation.h"
+#include "ListRealization.h"
 
 /**
- * Realisation of array list.
+ * Realization of array list.
  *
- * Realisation of list which stores nodes in the array. Supports
+ * Realization of list which stores nodes in the array. Supports
  * random access.
  *
  * @tparam T Type of elements in the list.
  */
 template<typename T>
-class ArrayRealisation : public ListRealisation<T> {
+class ArrayRealization : public ListRealization<T> {
 public:
     /**
      * Implementation of node and iterator over array list
      *
-     * Behaves as node and iterator in ArrayRealisation. Overrides methods
+     * Behaves as node and iterator in ArrayRealization. Overrides methods
      * of NodeIterator class to work with array list.
      */
     class Node : public NodeIterator<T> {
@@ -78,13 +78,13 @@ public:
         NodeIterator<T> *backward(int count);
 
         /**
-         * Does nothing for this realisation.
+         * Does nothing for this realization.
          * @param to
          */
         virtual void setPrev(NodeIterator<T> *to) {}
 
         /**
-         * Does nothing for this realisation.
+         * Does nothing for this realization.
          * @param to
          */
         virtual void setNext(NodeIterator<T> *to) {}
@@ -95,7 +95,7 @@ public:
      *
      * Creates empty array list (with only tail element).
      */
-    ArrayRealisation();
+    ArrayRealization();
 
     /**
      * Inserts element before <pos>.
@@ -126,7 +126,7 @@ public:
      * Returns element to the tail of the list.
      *
      * Equal to:
-     *  node_ptr = realisation.begin() + realisation.size();
+     *  node_ptr = realization.begin() + realization.size();
      * @return
      */
     NodeIterator<T> *end();
@@ -137,7 +137,7 @@ public:
      * Deletes the array of elements.
      * Does NOT delete raw pointers stored in list.
      */
-    ~ArrayRealisation();
+    ~ArrayRealization();
 
 private:
 
@@ -167,6 +167,6 @@ private:
     void shrink();
 };
 
-#include "ArrayRealisation.inl.h"
+#include "ArrayRealization.inl.h"
 
-#endif //LISTS_ArrayRealisation_H
+#endif //LISTS_ArrayRealization_H

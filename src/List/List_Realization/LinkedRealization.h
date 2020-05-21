@@ -1,31 +1,30 @@
 /**
- * @file LinkedRealisation.h
+ * @file LinkedRealization.inl.h
  * @author tmyroniuk
- * @date 13.10.2019
- * @brief Contains declaration of LinkedRealisation class.
+ * @date 13.05.2020
+ * @brief Contains definition of LinkedRealization class methods.
  */
+#ifndef LINKEDREALIZATION_H
+#define LINKEDREALIZATION_H
 
-#ifndef LISTS_LinkedRealisation_H
-#define LISTS_LinkedRealisation_H
 
-
-#include "ListRealisation.h"
+#include "ListRealization.h"
 
 /**
- * Realisation of the doubly linked list.
+ * Realization of the doubly linked list.
  *
- * Realisation of the list which stores Nodes pointing to next and the previous.
+ * Realization of the list which stores Nodes pointing to next node.
  * List ends with tail node, first Node in the list is head.
  *
  * @tparam T Type if the elements stored.
  */
 template<typename T>
-class DoublyLinkedRealisation : public ListRealisation<T> {
+class LinkedRealization : public ListRealization<T> {
 public:
     /**
      * Implementation of node and iterator over linked list
      *
-     * Behaves as node and iterator in LinkedRealisation. Overrides methods
+     * Behaves as node and iterator in LinkedRealization. Overrides methods
      * of NodeIterator class to work with array list.
      */
     class Node : public NodeIterator<T> {
@@ -36,24 +35,25 @@ public:
         NodeIterator<T> *next;
 
         /**
-         * Pointer to the previous node in the list.
+         * Pointer to the next node in the list.
          */
-        NodeIterator<T> *prev;
+        LinkedRealization<T> *list;
+
     public:
 
         /**
-         * Default constructor.
+         * Constructs node in of the list.
          */
-        Node();
+        Node(ListRealization<T>* _list);
 
         /**
-         * Creates node with given value and pointers to next and previous elements.
+         * Creates node with given value and pointers to next element and containing list.
          *
          * @param data New node value.
          * @param _prev Element before new node.
          * @param _next Element after new node.
          */
-        Node(T data, NodeIterator<T> *_prev, NodeIterator<T> *_next);
+        Node(T data, NodeIterator<T> *_next, ListRealization<T>* _list);
 
         /**
          * Returns ptr to the previous element.
@@ -92,7 +92,7 @@ public:
          *
          * @param to New previous element.
          */
-        virtual void setPrev(NodeIterator<T> *to);
+        virtual void setPrev(NodeIterator<T> *to) {}
 
         /**
          * Changes next element to given.
@@ -107,7 +107,7 @@ public:
      *
      * Creates tail node. Set the head pointer to it. Links them.
      */
-    DoublyLinkedRealisation();
+    LinkedRealization();
 
     /**
      * Inserts new element with given value before given position.
@@ -146,7 +146,7 @@ public:
      * Deletes each element of the list. Does NOT delete raw pointers stored
      * in the list.
      */
-    virtual ~DoublyLinkedRealisation();
+    virtual ~LinkedRealization();
 
 private:
 
@@ -161,6 +161,6 @@ private:
     NodeIterator<T> *tail;
 };
 
-#include "DoublyLinkedRealisation.inl.h"
+#include "LinkedRealization.inl.h"
 
-#endif //LISTS_LinkedRealisation_H
+#endif // LINKEDREALIZATION_H

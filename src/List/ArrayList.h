@@ -13,7 +13,7 @@
 /**
  * Implements array list.
  *
- * BaseList with ArrayRealisation realisation. Iterators over this list are NOT safe to use after an
+ * BaseList with ArrayRealization realization. Iterators over this list are NOT safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
@@ -26,7 +26,7 @@ public:
     /**
      * Default constructor.
      *
-     * Creates List from BaseList constructor and ArrayRealisation object as a
+     * Creates List from BaseList constructor and ArrayRealization object as a
      * parameter.
      */
     ArrayList();

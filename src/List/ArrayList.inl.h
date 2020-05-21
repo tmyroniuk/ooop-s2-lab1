@@ -8,9 +8,9 @@
 #include "ArrayList.h"
 
 template<typename T>
-ArrayList<T>::ArrayList() : BaseList<T>(new ArrayRealisation<T>()) {}
+ArrayList<T>::ArrayList() : BaseList<T>(new ArrayRealization<T>()) {}
 
 template<typename T>
 T &ArrayList<T>::operator[](unsigned int _val) {
-    return BaseList<T>::realisation->begin()->forward(_val)->getVal();
+    return BaseList<T>::realization->begin()->forward(_val)->getVal();
 }

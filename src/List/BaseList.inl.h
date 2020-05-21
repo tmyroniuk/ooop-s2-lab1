@@ -6,8 +6,8 @@
  */
 
 #include "BaseList.h"
-#include "List_Realisation/DoublyLinkedRealisation.h"
-#include "List_Realisation/ArrayRealisation.h"
+#include "List_Realization/DoublyLinkedRealization.h"
+#include "List_Realization/ArrayRealization.h"
 
 
 template<typename T>
@@ -17,71 +17,71 @@ NodeIterator<T> *BaseList<T>::getNode(const Iterator<T> &_iterator) {
 
 template<typename T>
 Iterator<T> BaseList<T>::begin() {
-    return Iterator<T>(realisation->begin());
+    return Iterator<T>(realization->begin());
 }
 
 template<typename T>
 Iterator<T> BaseList<T>::end() {
-    return Iterator<T>(realisation->end());
+    return Iterator<T>(realization->end());
 }
 
 
 template<typename T>
 void BaseList<T>::insert(const Iterator<T> &pos, T data) {
-    realisation->insert(getNode(pos), data);
+    realization->insert(getNode(pos), data);
 }
 
 template<typename T>
 T BaseList<T>::extract(const Iterator<T> &pos) {
-    return realisation->extract(getNode(pos));
+    return realization->extract(getNode(pos));
 }
 
 template<typename T>
 unsigned int BaseList<T>::size() {
-    return realisation->size();
+    return realization->size();
 }
 
 template<typename T>
-BaseList<T>::BaseList(ListRealisation<T> *type) : realisation(type), sorting_algo(new QuickSort<T>) {}
+BaseList<T>::BaseList(ListRealization<T> *type) : realization(type), sorting_algo(new QuickSort<T>) {}
 
 template<typename T>
 void BaseList<T>::push_back(T data) {
-    realisation->insert(realisation->end(), data);
+    realization->insert(realization->end(), data);
 }
 
 template<typename T>
 void BaseList<T>::push_front(T data) {
-    realisation->insert(realisation->begin(), data);
+    realization->insert(realization->begin(), data);
 }
 
 template<typename T>
 T BaseList<T>::pop_back() {
-    return realisation->extract(realisation->end()->getPrev());
+    return realization->extract(realization->end()->getPrev());
 }
 
 template<typename T>
 T BaseList<T>::pop_front() {
-    return realisation->extract(realisation->begin());
+    return realization->extract(realization->begin());
 }
 
 template<typename T>
 T &BaseList<T>::front() {
-    return realisation->begin()->getVal();
+    return realization->begin()->getVal();
 }
 
 template<typename T>
 T &BaseList<T>::back() {
-    return realisation->end()->getPrev()->getVal();
+    return realization->end()->getPrev()->getVal();
 }
 
 template<typename T>
 BaseList<T>::~BaseList() {
-    delete realisation;
+    delete realization;
 }
 
 template<typename T>
 bool BaseList<T>::empty() {
-    return realisation->size() == 0;
+    return realization->size() == 0;
 }
 
 template<typename T>

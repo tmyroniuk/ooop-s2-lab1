@@ -1,24 +1,24 @@
 /**
- * @file LinkedRealisation.inl.h
+ * @file LinkedRealization.inl.h
  * @author tmyroniuk
  * @date 13.05.2020
- * @brief Contains definition of LinkedRealisation class methods.
+ * @brief Contains definition of LinkedRealization class methods.
  */
-#include "LinkedRealisation.h"
+#include "LinkedRealization.h"
 
 template<typename T>
-LinkedRealisation<T>::LinkedRealisation() : ListRealisation<T>(), head(new Node()), tail(head) {}
+LinkedRealization<T>::LinkedRealization() : ListRealization<T>(), head(new Node()), tail(head) {}
 
 template<typename T>
-LinkedRealisation<T>::Node::Node(ListRealisation<T>* _list) : NodeIterator<T>(), next(nullptr), list(_list) {}
+LinkedRealization<T>::Node::Node(ListRealization<T>* _list) : NodeIterator<T>(), next(nullptr), list(_list) {}
 
 template<typename T>
-LinkedRealisation<T>::Node::Node(T data, NodeIterator<T> *_next, ListRealisation<T>* _list) : NodeIterator<T>(data),
+LinkedRealization<T>::Node::Node(T data, NodeIterator<T> *_next, ListRealization<T>* _list) : NodeIterator<T>(data),
                                                                                     next(_next), list(_list) {}
 
 template<typename T>
-void LinkedRealisation<T>::insert(NodeIterator<T> *pos, T data) {
-    if (LinkedRealisation<T>::len == 0) {
+void LinkedRealization<T>::insert(NodeIterator<T> *pos, T data) {
+    if (LinkedRealization<T>::len == 0) {
         //create head
         head = new Node(data, tail, this);
     } else {
@@ -31,11 +31,11 @@ void LinkedRealisation<T>::insert(NodeIterator<T> *pos, T data) {
         temp->setNext(pos);
 
     }
-    LinkedRealisation<T>::len++;
+    LinkedRealization<T>::len++;
 }
 
 template<typename T>
-T LinkedRealisation<T>::extract(NodeIterator<T> *pos) {
+T LinkedRealization<T>::extract(NodeIterator<T> *pos) {
     T temp = pos->getVal();
     //we shouldn't delete tail
     if (pos != tail) {
@@ -44,29 +44,29 @@ T LinkedRealisation<T>::extract(NodeIterator<T> *pos) {
             pos->getPrev()->setNext(pos->getNext());
         else head = pos->getNext();
         delete pos;
-        LinkedRealisation<T>::len--;
+        LinkedRealization<T>::len--;
     }
     return temp;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedRealisation<T>::begin() {
+NodeIterator<T> *LinkedRealization<T>::begin() {
     return head;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedRealisation<T>::end() {
+NodeIterator<T> *LinkedRealization<T>::end() {
     return tail;
 }
 
 template<typename T>
-LinkedRealisation<T>::~LinkedRealisation() {
+LinkedRealization<T>::~LinkedRealization() {
     for (auto i = head->getNext(); i != nullptr; i = i->getNext()) delete i->getPrev();
     delete tail;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedRealisation<T>::Node::getPrev() {
+NodeIterator<T> *LinkedRealization<T>::Node::getPrev() {
     if(this == list->begin()) return nullptr;
     //Search for node for which this node is next
     for(auto i = list->begin(); i->getNext() != nullptr; i = i->getNext());
@@ -75,7 +75,7 @@ NodeIterator<T> *LinkedRealisation<T>::Node::getPrev() {
 }
 
 template<typename T>
-NodeIterator<T> *LinkedRealisation<T>::Node::backward(int count) {
+NodeIterator<T> *LinkedRealization<T>::Node::backward(int count) {
     if (count < 0) forward(-count);
     NodeIterator<T> *temp = this;
     for (int i = 0; i < count; i++) {
@@ -85,12 +85,12 @@ NodeIterator<T> *LinkedRealisation<T>::Node::backward(int count) {
 }
 
 template<typename T>
-NodeIterator<T> *LinkedRealisation<T>::Node::getNext() {
+NodeIterator<T> *LinkedRealization<T>::Node::getNext() {
     return next;
 }
 
 template<typename T>
-NodeIterator<T> *LinkedRealisation<T>::Node::forward(int count) {
+NodeIterator<T> *LinkedRealization<T>::Node::forward(int count) {
     if (count < 0) backward(-count);
     NodeIterator<T> *temp = this;
     for (int i = 0; i < count; i++) {
@@ -100,6 +100,6 @@ NodeIterator<T> *LinkedRealisation<T>::Node::forward(int count) {
 }
 
 template<typename T>
-void LinkedRealisation<T>::Node::setNext(NodeIterator<T> *to) {
+void LinkedRealization<T>::Node::setNext(NodeIterator<T> *to) {
     next = to;
 }

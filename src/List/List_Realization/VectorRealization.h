@@ -1,26 +1,26 @@
 /**
- * @file ArrayRealisation.inl.h
+ * @file ArrayRealization.inl.h
  * @author tmyroniuk
  * @date 14.10.2019
- * @brief Contains declaration of VectorRealisation class methods.
+ * @brief Contains declaration of VectorRealization class methods.
  */
 
-#ifndef LAB1_VectorRealisation_H
-#define LAB1_VectorRealisation_H
+#ifndef LAB1_VectorRealization_H
+#define LAB1_VectorRealization_H
 
 #include <vector>
-#include "ListRealisation.h"
+#include "ListRealization.h"
 
 /**
- * Realisation of vector list.
+ * Realization of vector list.
  *
- * Realisation of list which stores nodes in the std::vector. Supports
+ * Realization of list which stores nodes in the std::vector. Supports
  * random access.
  *
  * @tparam T Type of elements in the list.
  */
 template<typename T>
-class VectorRealisation : public ListRealisation<T> {
+class VectorRealization : public ListRealization<T> {
 public:
     /**
      * Implementation of node and iterator over vector list
@@ -79,13 +79,13 @@ public:
         NodeIterator<T> *backward(int count);
 
         /**
-         * Does nothing for this realisation.
+         * Does nothing for this realization.
          * @param to
          */
         virtual void setPrev(NodeIterator<T> *to) {}
 
         /**
-         * Does nothing for this realisation.
+         * Does nothing for this realization.
          * @param to
          */
         virtual void setNext(NodeIterator<T> *to) {}
@@ -96,7 +96,7 @@ public:
      *
      * Creates empty vector list.
      */
-    VectorRealisation();
+    VectorRealization();
 
     /**
      * Inserts element before <pos>.
@@ -127,12 +127,12 @@ public:
      * Returns element to the tail of the list.
      *
      * Equal to:
-     *  node_ptr = realisation.begin() + realisation.size();
+     *  node_ptr = realization.begin() + realization.size();
      * @return
      */
     NodeIterator<T> *end();
 
-    ~VectorRealisation();
+    ~VectorRealization();
 
 private:
     /**
@@ -142,7 +142,7 @@ private:
     std::vector<Node>* body;
 };
 
-#include "VectorRealisation.inl.h"
+#include "VectorRealization.inl.h"
 
 
-#endif //LAB1_VectorRealisation_H
+#endif //LAB1_VectorRealization_H

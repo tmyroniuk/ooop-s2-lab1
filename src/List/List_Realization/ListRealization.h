@@ -1,12 +1,12 @@
 /**
- * @file ListRealisation.h
+ * @file ListRealization.h
  * @author tmyroniuk
  * @date 13.10.2019
- * @brief Contains declaration of ListRealisation class.
+ * @brief Contains declaration of ListRealization class.
  */
 
-#ifndef LISTS_LISTREALISATION_H
-#define LISTS_LISTREALISATION_H
+#ifndef LISTS_LISTREALIZATION_H
+#define LISTS_LISTREALIZATION_H
 
 #include "NodeIterator.h"
 
@@ -15,7 +15,7 @@
  * @tparam T Type of elements stored.
  */
 template<typename T>
-class ListRealisation {
+class ListRealization {
 protected:
 
     /**
@@ -28,7 +28,7 @@ public:
     /**
      * Default constructor.
      */
-    explicit ListRealisation();
+    explicit ListRealization();
 
     /*
      * Inserts new element with given value before given position.
@@ -68,9 +68,9 @@ public:
      */
     unsigned int size();
 
-    virtual ~ListRealisation() = default;
+    virtual ~ListRealization() = default;
 };
 
-#include "ListRealisation.inl.h"
+#include "ListRealization.inl.h"
 
-#endif //LISTS_LISTREALISATION_H
+#endif //LISTS_LISTREALIZATION_H

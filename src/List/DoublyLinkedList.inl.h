@@ -8,4 +8,4 @@
 #include "DoublyLinkedList.h"
 
 template<typename T>
-DoublyLinkedList<T>::DoublyLinkedList() : BaseList<T>(new DoublyLinkedRealisation<T>()) {}
+DoublyLinkedList<T>::DoublyLinkedList() : BaseList<T>(new DoublyLinkedRealization<T>()) {}

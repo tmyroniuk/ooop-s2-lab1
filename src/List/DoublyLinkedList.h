@@ -13,7 +13,7 @@
 /**
  * Implements linked list.
  *
- * BaseList with LinkedRealisation realisation. Iterators over this are safe to use after an
+ * BaseList with LinkedRealization realization. Iterators over this are safe to use after an
  * element is inserted or removed.
  *
  * @tparam T Type of elements in the list.
@@ -26,7 +26,7 @@ public:
     /**
      * Default constructor.
      *
-     * Creates List from BaseList constructor and LinkedRealisation object as a
+     * Creates List from BaseList constructor and LinkedRealization object as a
      * parameter.
      */
     DoublyLinkedList();

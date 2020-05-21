@@ -9,7 +9,7 @@
 #define LISTS_ITERATOR_H
 
 
-#include "List_Realisation/NodeIterator.h"
+#include "List_Realization/NodeIterator.h"
 
 template<typename T>
 class BaseList;
@@ -17,7 +17,7 @@ class BaseList;
 /**
  * Iterates over the BaseList.
  *
- * Contain a pointer to the NodeIterator of list realisation,
+ * Contain a pointer to the NodeIterator of list realization,
  * hide its operations from client.
  *
  * @tparam T Type of elements in the list.

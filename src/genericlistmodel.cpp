@@ -3,7 +3,7 @@
 template <typename T>
 BaseList<T>* GenericListModel::list = new DoublyLinkedList<T>;
 int GenericListModel::type = 0;
-int GenericListModel::realisation = 0;
+int GenericListModel::realization = 0;
 
 GenericListModel::GenericListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -150,12 +150,12 @@ void GenericListModel::setType(int i)
     }
     type = i;
     switch(type) {
-        case 0: setList<int>(realisation); break;
-        case 1: setList<double>(realisation); break;
-        case 2: setList<std::string>(realisation); break;
-        case 3: setList<IPv4>(realisation); break;
-        case 4: setList<IPv6>(realisation); break;
-        case 5: setList<MAC>(realisation); break;
+        case 0: setList<int>(realization); break;
+        case 1: setList<double>(realization); break;
+        case 2: setList<std::string>(realization); break;
+        case 3: setList<IPv4>(realization); break;
+        case 4: setList<IPv6>(realization); break;
+        case 5: setList<MAC>(realization); break;
     }
 }
 
@@ -203,9 +203,9 @@ void GenericListModel::setSort(int i)
 template<typename T>
 void GenericListModel::setList(int i)
 {
-    realisation = i;
+    realization = i;
     if(list<T>) delete list<T>;
-    switch (realisation) {
+    switch (realization) {
         case 0: list<T> = new DoublyLinkedList<T>; break;
         case 1: list<T> = new LinkedList<T>; break;
         case 2: list<T> = new ArrayList<T>; break;

@@ -43,18 +43,18 @@ HEADERS += \
     src/List/Iterator.inl.h \
     src/List/LinkedList.h \
     src/List/LinkedList.inl.h \
-    src/List/List_Realisation/ArrayRealisation.h \
-    src/List/List_Realisation/ArrayRealisation.inl.h \
-    src/List/List_Realisation/DoublyLinkedRealisation.h \
-    src/List/List_Realisation/DoublyLinkedRealisation.inl.h \
-    src/List/List_Realisation/LinkedRealisation.h \
-    src/List/List_Realisation/LinkedRealisation.inl.h \
-    src/List/List_Realisation/ListRealisation.h \
-    src/List/List_Realisation/ListRealisation.inl.h \
-    src/List/List_Realisation/NodeIterator.h \
-    src/List/List_Realisation/NodeIterator.inl.h \
-    src/List/List_Realisation/VectorRealisation.h \
-    src/List/List_Realisation/VectorRealisation.inl.h \
+    src/List/List_Realization/ArrayRealization.h \
+    src/List/List_Realization/ArrayRealization.inl.h \
+    src/List/List_Realization/DoublyLinkedRealization.h \
+    src/List/List_Realization/DoublyLinkedRealization.inl.h \
+    src/List/List_Realization/LinkedRealization.h \
+    src/List/List_Realization/LinkedRealization.inl.h \
+    src/List/List_Realization/ListRealization.h \
+    src/List/List_Realization/ListRealization.inl.h \
+    src/List/List_Realization/NodeIterator.h \
+    src/List/List_Realization/NodeIterator.inl.h \
+    src/List/List_Realization/VectorRealization.h \
+    src/List/List_Realization/VectorRealization.inl.h \
     src/List/Sort/HeapSort.h \
     src/List/Sort/InsertionSort.h \
     src/List/Sort/MergeSort.h \
