@@ -29,6 +29,10 @@ private slots:
 
     void on_randButton_clicked();
 
+    void on_clearButton_clicked();
+
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };

@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -32,17 +34,39 @@ void MainWindow::on_sortBox_currentIndexChanged(int index)
 void MainWindow::on_insertButton_clicked()
 {
     auto index = ui->listView->currentIndex();
-    if(index.row() < 0 || index.row() >= ui->listView->model()->rowCount()) return;
+    if(index.row() < 0) return;
     ui->listView->model()->insertRows(index.row(), 1);
     ui->listView->model()->setData(index, ui->lineEdit->text(), Qt::DisplayRole);
+    if(ui->listView->model()->rowCount() > 1) {
+        ui->typeBox->setEnabled(false);
+        ui->listBox->setEnabled(false);
+    }
 }
 
 void MainWindow::on_removeButton_clicked()
 {
-    ui->listView->model()->removeRow(ui->listView->currentIndex().row());
+    auto index = ui->listView->currentIndex();
+    if(index.row() < 0) return;
+    ui->listView->model()->removeRow(index.row());
+    if(ui->listView->model()->rowCount() == 1) {
+        ui->typeBox->setEnabled(true);
+        ui->listBox->setEnabled(true);
+    }
 }
 
 void MainWindow::on_randButton_clicked()
 {
     ui->lineEdit->setText(ui->listView->model()->data(QModelIndex(), RandomRole).toString());
+}
+
+void MainWindow::on_clearButton_clicked()
+{
+    ui->typeBox->setEnabled(true);
+    ui->listBox->setEnabled(true);
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    if(arg1 == "") ui->insertButton->setEnabled(false);
+    else ui->insertButton->setEnabled(true);
 }
